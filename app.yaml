@@ -9,6 +9,14 @@ handlers:
   static_files: favicon.ico
   upload: favicon\.ico
 
+#added per advice from https://sites.google.com/site/usfcomputerscience/loading-images-and-css-in-appengine
+- url: /images
+  static_dir: images
+
+- url: /stylesheets
+  static_dir: stylesheets
+###
+
 - url: .*
   script: main.app
 
@@ -17,4 +25,4 @@ libraries:
   version: "2.5.2"
 
 - name: jinja2
-  version: latest   
+  version: latest

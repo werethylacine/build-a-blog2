@@ -23,6 +23,10 @@ from google.appengine.ext import db
 template_dir = os.path.join(os.path.dirname(__file__), 'templates')
 jinja_env = jinja2.Environment(loader = jinja2.FileSystemLoader(template_dir), autoescape = True)
 
+def get_posts(limit, offset):
+    entries_to_show = db.GqlQuery("SELECT * FROM Entry ORDER BY created DESC LIMIT {} OFFSET {}".format(limit, limit * offset))
+    return entries_to_show
+
 class Handler(webapp2.RequestHandler):
     def write(self, *a, **kw):
         self.response.out.write(*a, **kw)
@@ -41,12 +45,20 @@ class Entry(db.Model):
     created = db.DateTimeProperty(auto_now_add = True)
 
 class BlogEntries(Handler):
-    def render_front(self, title="", entry="", author="", error=""):
-        past_entries = db.GqlQuery("SELECT * FROM Entry ORDER BY created DESC LIMIT 5") #OFFSET
-        self.render("blog.html", title=title, entry=entry, error=error, past_entries=past_entries)
+    def render_front(self, page, title="", entry="", author="", error=""):
+        if page <= 1:
+            page = 1
+        past_entries = get_posts(5, page)
+        need_next_link = True
+        if len(list(past_entries)) < 5:
+            need_next_link = False
+        self.render("blog.html", page=page, need_next_link=need_next_link, title=title, entry=entry, error=error, past_entries=past_entries)
 
     def get(self):
-        self.render_front()
+        page = self.request.get("page")
+        if page == '':
+            page = 1
+        self.render_front(int(page))
 
 class NewPost(Handler):
     def render_front(self, title="", entry="", author="", error=""):
@@ -71,9 +83,11 @@ class NewPost(Handler):
 
 class ViewPostHandler(Handler):
     def get(self, id):
-        #still need to check if ID exists
-        this_entry = Entry.get_by_id(int(id))
-        self.render("single_post.html", title=this_entry.title, entry=this_entry.entry, author=this_entry.author)
+        if id:
+            this_entry = Entry.get_by_id(int(id))
+            self.render("single_post.html", title=this_entry.title, entry=this_entry.entry, author=this_entry.author)
+        else:
+            self.redirect("/blog")
 
 app = webapp2.WSGIApplication([
     ('/', BlogEntries),

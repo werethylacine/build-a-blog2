@@ -1,11 +1,34 @@
 {% include "header_footer.html" %}
-  <div><a href = "/newpost"><button>New Post</button></a></div>
+  <div><a href = "/newpost"><button>New Post</button></a></div></div>
   <div>
+    <div class="entry-display">
     {% for entry in past_entries %}
       <div class="entry">
-        <div class="entry-title"><a href = "/blog/{{ entry.key().id() }}">{{entry.title}}</a></div>
-        <pre class="entry-body">{{entry.entry}}</div>
-        <div class="entry-author">{{entry.author}}</div>
+        <div class="entry_title"><a href = "/blog/{{ entry.key().id() }}">{{entry.title}}</a></div>
+        <div class="entry_author">by: {{entry.author}}</div>
+        <div class="entry_body">{{entry.entry}}</div>
       </div>
     {% endfor %}
+   </div>
+
+    <div class="navlinks">
+
+      {% if page > 1 %}
+        <a href="/blog?page={{ page - 1 }}">
+          <button id="last-link">last</button>
+        </a>
+      {% else %}
+        <div class="placeholder"></div>
+      {% endif %}
+
+      {% if need_next_link %}
+        <a href = "/blog?page={{ page + 1 }}">
+          <button id="next-link">next</button>
+        </a>
+      {% else %}
+          <div class="placeholder"></div>
+      {% endif %}
+
+    </div>
+
   </div>

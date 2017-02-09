@@ -1,0 +1,109 @@
+html {
+  height: 100%;
+}
+h1 {
+  font-size: 2.5em;
+  font-family: 'Barrio', cursive;
+  margin-left: 30px;
+}
+
+a {
+  text-decoration: none;
+}
+a:link h1 {
+  color: #000;
+}
+a:visited h1 {
+  color: #000;
+}
+
+.entry {
+  /* margin: 10px 30px 20px 40px; */
+  margin: auto;
+  margin-bottom: 20px;
+  border-radius: 5px;
+  font-family: 'Muli', sans-serif;
+  padding: 20px;
+  background-color: #e0dcd1;
+  border: 1px solid #ebe8e0;
+  width: 80%;
+
+}
+
+.entry_title, a {
+  font-size: 1.5em;
+  font-weight: 600;
+  color: #7e2e2c;
+}
+.entry_body {
+  font-size: 1.1em;
+  margin: 20px 10px 10px 20px;
+}
+.entry_author {
+  font-size: .8em;
+  margin: 0px 0px 0px 10px;
+}
+
+button {
+  width: 100px;
+  height: 100px;
+  color: #FFF;
+  border-radius: 50%;
+  border: 10px solid transparent;
+  background-color: #5e1f3e;
+  transition:
+    all .7s,
+    border .2s .7s;
+}
+button:hover {
+  border: 10px solid #e64500;
+  background-color: #7e2e2c;
+}
+
+body {
+  background: #bbb6aa; /* For browsers that do not support gradients */
+  background: -webkit-radial-gradient(circle, #bbb6aa, #d2cfc6); /* Safari */
+  background: -o-radial-gradient(circle, #bbb6aa, #d2cfc6); /* Opera 11.6 to 12.0 */
+  background: -moz-radial-gradient(circle, #bbb6aa, #d2cfc6); /* Firefox 3.6 to 15 */
+  background: radial-gradient(circle, #bbb6aa, #d2cfc6); /* Standard syntax */
+}
+.container {
+    width: 90%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    align-content: stretch;
+}
+
+.navlinks {
+  background-color: #e0dcd1;
+  border-top: 1px solid #ebe8e0;
+  position: absolute;
+  right: 0;
+  left: 0;
+  display: flex;
+  padding: 20px 50px 25px 50px;
+  justify-content: space-between;
+}
+.navlinks button {
+  width: 70px;
+  height: 70px;
+  color: #FFF;
+  border-radius: 50%;
+  border: 5px solid transparent;
+  background-color: #5e1f3e;
+  transition:
+    all .7s,
+    border .2s .7s;
+}
+
+.navlinks button:hover {
+  border: 5px solid #e64500;
+  background-color: #7e2e2c;
+}
+
+#next-link a, #last-link a{
+  font-size: .9em;
+  font-weight: 400;
+  color: #fff;
+}
