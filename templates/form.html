@@ -1,0 +1,22 @@
+{% include "header_footer.html" %}
+
+    <form method="post">
+      <label>
+        <div>title</div>
+        <input type="text" name="title" value={{title}}>
+      </label>
+
+      <label>
+        <div>entry</div>
+        <textarea name="entry" value={{entry}}></textarea>
+      </label>
+
+      <label>
+        <div>author</div>
+        <input type="text" name="author" value={{author}}>
+      </label>
+
+      <div class="error">{{error}}</div>
+      <a href = "/blog"><input type="submit"></a>
+
+    </form>
