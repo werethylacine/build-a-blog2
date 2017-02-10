@@ -79,7 +79,7 @@ class NewPost(Handler):
             e.put()
             self.redirect("/blog/" + str(e.key().id()))
         else:
-            error = "we need a title, entry, and author!"
+            error = "Oops! We need a title, entry, and author to create a new post!"
             self.render_front(title, entry, author, error)
 
 class ViewPostHandler(Handler):

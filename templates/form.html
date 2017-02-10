@@ -3,33 +3,38 @@
 
     <form class="new_post" method="post">
       <table border="0">
+        {% if error != '' %}
+          <tr>
+            <td></td>
+            <td><div id="error">{{error}}</div></td>
+          </tr>
+        {% endif %}
+
         <tr>
           <label>
             <td><div>title</td>
-            <td class="wide"><input type="text" name="title" value={{title}}></div></td>
+            <td><input class="input" type="text" name="title" value={{title}}></div></td>
           </label>
         </tr>
 
         <tr>
           <label>
             <td><div>entry</td>
-            <td class="wide"><textarea name="entry" value={{entry}}></textarea></div></td>
+            <td><textarea class="input" name="entry">{{entry}}</textarea></div></td>
           </label>
         </tr>
 
         <tr>
           <label>
             <td><div>author</td>
-            <td class="wide"><input type="text" name="author" value={{author}}></div></td>
+            <td><input class="input" type="text" name="author" value={{author}}></div></td>
           </label>
         </tr>
             <td></td>
-            <td class="wide"><a href = "/blog"><input class = "submit" type="submit"></a></td>
+            <td><a href = "/blog"><input class = "submit" type="submit"></a></td>
         <tr>
 
         </tr>
       </table>
-
-      <div class="error">{{error}}</div>
 
     </form>

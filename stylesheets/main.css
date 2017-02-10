@@ -23,8 +23,33 @@ a:visited h1 {
   justify-content: space-between;
 }
 
+/* TODO: styling for error messages */
+#error {
+  font-family: 'Muli', sans-serif;
+  font-weight: 700;
+  font-size: 1.1em;
+  text-align: center;
+  width: 40%;
+  padding: 20px 40px 20px 40px;
+  color: #FFF;
+  background-color: #e64500;
+  border-radius: 10px;
+  margin: 0px 0px 20px 10px;
+  max-width: 335px;
+}
+
+.entry_single {
+  margin: auto;
+  margin-bottom: 20px;
+  border-radius: 5px;
+  font-family: 'Muli', sans-serif;
+  padding: 20px;
+  background-color: #e0dcd1;
+  border: 1px solid #ebe8e0;
+  width: 80%;
+}
+
 .entry {
-  /* margin: 10px 30px 20px 40px; */
   margin: auto;
   margin-bottom: 20px;
   border-radius: 5px;
@@ -131,7 +156,7 @@ table {
 input, textarea {
   background-color: #e0dcd1;
   border: 0px;
-  border-bottom: 3px solid #e64500;
+  border-bottom: 5px solid transparent;
   width: 400px;
   font-size: 1em;
 }
@@ -141,7 +166,8 @@ textarea {
 }
 
 .submit {
-  margin: 10px;
+  font-size: .8em;
+  margin: 15px 0px 20px 15px;
 }
 
 .new_post {
@@ -154,5 +180,9 @@ input, textarea {
   padding: 7px;
   margin: 5px 5px 5px 10px;
   outline: none;
-  transition: .3s all ease-in-out;
+  transition: .5s all ease-in-out;
+}
+
+.input:focus {
+  border-bottom: 5px solid #e64500;
 }
