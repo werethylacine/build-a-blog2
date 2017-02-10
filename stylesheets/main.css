@@ -2,7 +2,7 @@ html {
   height: 100%;
 }
 h1 {
-  font-size: 2.5em;
+  font-size: 4em;
   font-family: 'Barrio', cursive;
   margin-left: 30px;
 }
@@ -17,6 +17,12 @@ a:visited h1 {
   color: #000;
 }
 
+.entry_display {
+  display: inline-flex;
+  width: 80%;
+  justify-content: space-between;
+}
+
 .entry {
   /* margin: 10px 30px 20px 40px; */
   margin: auto;
@@ -27,10 +33,14 @@ a:visited h1 {
   background-color: #e0dcd1;
   border: 1px solid #ebe8e0;
   width: 80%;
-
+  transition: all .5s ease-in-out;
 }
 
-.entry_title, a {
+.entry:hover {
+  transform: scale(1.05);
+}
+
+.entry_title, .entry_title a {
   font-size: 1.5em;
   font-weight: 600;
   color: #7e2e2c;
@@ -49,15 +59,17 @@ button {
   height: 100px;
   color: #FFF;
   border-radius: 50%;
-  border: 10px solid transparent;
+  border: 5px solid transparent;
   background-color: #5e1f3e;
   transition:
     all .7s,
     border .2s .7s;
 }
 button:hover {
-  border: 10px solid #e64500;
+  border: 5px solid #e64500;
   background-color: #7e2e2c;
+  outline: none;
+  transform: scale(1.1);
 }
 
 body {
@@ -85,7 +97,7 @@ body {
   padding: 20px 50px 25px 50px;
   justify-content: space-between;
 }
-.navlinks button {
+.submit, .navlinks button {
   width: 70px;
   height: 70px;
   color: #FFF;
@@ -93,17 +105,54 @@ body {
   border: 5px solid transparent;
   background-color: #5e1f3e;
   transition:
-    all .7s,
-    border .2s .7s;
+    all .7s ease-in-out,
+    border .2s .7s ease-in-out;
 }
 
-.navlinks button:hover {
+.submit:hover, .navlinks button:hover {
   border: 5px solid #e64500;
   background-color: #7e2e2c;
+  transform: scale(1.2);
 }
 
 #next-link a, #last-link a{
   font-size: .9em;
   font-weight: 400;
   color: #fff;
+}
+
+table {
+  font-family: 'Muli', sans-serif;
+  color: #7e2e2c;
+  margin: 0px 0px 0px 30px;
+  width: 100%;
+}
+
+input, textarea {
+  background-color: #e0dcd1;
+  border: 0px;
+  border-bottom: 3px solid #e64500;
+  width: 400px;
+  font-size: 1em;
+}
+
+textarea {
+  height: 200px;
+}
+
+.submit {
+  margin: 10px;
+}
+
+.new_post {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+input, textarea {
+  padding: 7px;
+  margin: 5px 5px 5px 10px;
+  outline: none;
+  transition: .3s all ease-in-out;
 }

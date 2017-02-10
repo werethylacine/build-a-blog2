@@ -48,8 +48,9 @@ class BlogEntries(Handler):
     def render_front(self, page, title="", entry="", author="", error=""):
         if page <= 1:
             page = 1
-        past_entries = get_posts(5, page)
+        past_entries = get_posts(5, page - 1)
         need_next_link = True
+        #need to fix this for edge case of 10, 15, 20 entries
         if len(list(past_entries)) < 5:
             need_next_link = False
         self.render("blog.html", page=page, need_next_link=need_next_link, title=title, entry=entry, error=error, past_entries=past_entries)

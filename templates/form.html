@@ -1,23 +1,35 @@
 {% include "header_footer.html" %}
     </div>
 
-    <form method="post">
-      <label>
-        <div>title</div>
-        <input type="text" name="title" value={{title}}>
-      </label>
+    <form class="new_post" method="post">
+      <table border="0">
+        <tr>
+          <label>
+            <td><div>title</td>
+            <td class="wide"><input type="text" name="title" value={{title}}></div></td>
+          </label>
+        </tr>
 
-      <label>
-        <div>entry</div>
-        <textarea name="entry" value={{entry}}></textarea>
-      </label>
+        <tr>
+          <label>
+            <td><div>entry</td>
+            <td class="wide"><textarea name="entry" value={{entry}}></textarea></div></td>
+          </label>
+        </tr>
 
-      <label>
-        <div>author</div>
-        <input type="text" name="author" value={{author}}>
-      </label>
+        <tr>
+          <label>
+            <td><div>author</td>
+            <td class="wide"><input type="text" name="author" value={{author}}></div></td>
+          </label>
+        </tr>
+            <td></td>
+            <td class="wide"><a href = "/blog"><input class = "submit" type="submit"></a></td>
+        <tr>
+
+        </tr>
+      </table>
 
       <div class="error">{{error}}</div>
-      <a href = "/blog"><input type="submit"></a>
 
     </form>
